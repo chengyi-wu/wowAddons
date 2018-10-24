@@ -1,8 +1,6 @@
 import urllib.request
 import sys
 import zipfile
-import socks
-import sockshandler
 
 addOns = {
     "Quartz" : "https://www.wowace.com/projects/quartz/files/latest",
@@ -19,8 +17,6 @@ addOns = {
     "Scrap (Junk Seller)" : "https://wow.curseforge.com/projects/scrap/files/latest"
 }
 
-useProxy = False
-
 def dlAddOn(url):
     def progresshook(chunk, chunkSize, totalSize):
         size = min(chunk * chunkSize, totalSize)
@@ -36,10 +32,6 @@ def unZip(file, folder = '.'):
         f.extractall(folder)
 
 if __name__ == '__main__':
-    if useProxy:
-        proxy = sockshandler.SocksiPyHandler(socks.PROXY_TYPE_SOCKS5, "127.0.0.1", 1080)
-        opener = urllib.request.build_opener(proxy)
-        urllib.request.install_opener(opener)
     folder = 'D:/Games/World of Warcraft/Interface/AddOns'
     for k in addOns:
         url = addOns[k]
