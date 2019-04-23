@@ -30,6 +30,8 @@ addOns = {
     "WeakAuras 2" : "https://www.wowace.com/projects/weakauras-2/files/latest",
     "Shadowed Unit Frames" : "https://www.wowace.com/projects/shadowed-unit-frames/files/latest",
     "Talent Set Manager" : "https://wow.curseforge.com/projects/talent-set-manager/files/latest",
-    "Nameplate Scrolling Combat Text" : "https://wow.curseforge.com/projects/nameplate-scrolling-combat-text/files/latest"
+    "Nameplate Scrolling Combat Text" : "https://wow.curseforge.com/projects/nameplate-scrolling-combat-text/files/latest",
+    "AllTheIDs" : "https://wow.curseforge.com/projects/alltheids/files/latest",
+    "Instance Portals" : "https://wow.curseforge.com/projects/instance-portals/files/latest",
 }
 ```
