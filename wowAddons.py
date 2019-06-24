@@ -3,13 +3,11 @@ import sys
 import zipfile
 
 addOns = {
-    # "Deadly Boss Mods (DBM)" : "https://wow.curseforge.com/projects/deadly-boss-mods/files/latest",
     "BigWigs Bossmods" : "https://wow.curseforge.com/projects/big-wigs/files/latest",
     "LittleWigs" : "https://wow.curseforge.com/projects/little-wigs/files/latest",
     "BigWigs_Voice" : "https://wow.curseforge.com/projects/bigwigs_voice/files/latest",
     "Bigwigs Voice - Chinese voicepack (VV)" : "https://wow.curseforge.com/projects/bigwigs-voice-chinese-voicepack-vv/files/latest",
     "Details! Damage Meter" : "https://wow.curseforge.com/projects/details/files/latest",
-    "Skada Damage Meter" : "https://www.wowace.com/projects/skada/files/latest",
     "Quartz" : "https://www.wowace.com/projects/quartz/files/latest",
     "Bagnon" : "https://wow.curseforge.com/projects/bagnon/files/latest",
     "CompactRaid" : "https://wow.curseforge.com/projects/compactraid/files/latest",
@@ -22,7 +20,6 @@ addOns = {
     "World Quests List" : "https://wow.curseforge.com/projects/world-quests-list/files/latest",
     "Scrap (Junk Seller)" : "https://wow.curseforge.com/projects/scrap/files/latest",
     "TinyInspect" : "https://wow.curseforge.com/projects/itemlevel-anywhere/files/latest",
-    "Pa'ku Totems" : "https://wow.curseforge.com/projects/paku-totems/files/latest",
     "BonusRollPreview" : "https://wow.curseforge.com/projects/bonusrollpreview/files/latest",
     "KeystoneHelper" : "https://wow.curseforge.com/projects/keystonehelper/files/latest",
     "Angry Keystones" : "https://www.wowace.com/projects/angry-keystones/files/latest", 
@@ -31,7 +28,6 @@ addOns = {
     "EnhancedChatFilterMODFix" : "https://wow.curseforge.com/projects/ecfmodfix/files/latest", 
     "AzeriteTooltip" : "https://wow.curseforge.com/projects/azeritetooltip/files/latest",
     "BFAInvasionTimer" : "https://wow.curseforge.com/projects/bfainvasiontimer/files/latest",
-    "Quest Completist" : "https://wow.curseforge.com/projects/quest_completist/files/latest",
     "WeakAuras 2" : "https://www.wowace.com/projects/weakauras-2/files/latest",
     "Shadowed Unit Frames" : "https://www.wowace.com/projects/shadowed-unit-frames/files/latest",
     "Talent Set Manager" : "https://wow.curseforge.com/projects/talent-set-manager/files/latest",
@@ -39,6 +35,17 @@ addOns = {
     "AllTheIDs" : "https://wow.curseforge.com/projects/alltheids/files/latest",
     "Instance Portals" : "https://wow.curseforge.com/projects/instance-portals/files/latest",
     "Astral Keys" : "https://wow.curseforge.com/projects/astral-keys/files/latest",
+    "BugGrabber" : "https://www.wowace.com/projects/bug-grabber/files/latest",
+    "BugSack" : "https://www.wowace.com/projects/bugsack/files/latest",
+    "MythicPlusTimer" : "https://wow.curseforge.com/projects/mythicplustimer/files/latest", 
+    "LibGroupInSpecT" : "https://www.wowace.com/projects/libgroupinspect/files/latest",
+    "LibGetFrame" : "https://wow.curseforge.com/projects/libgetframe/files/latest",
+    # "HandyNotes" : "https://www.wowace.com/projects/handynotes/files/latest",
+    # "HandyNotes_DraenorTreasures" : "https://wow.curseforge.com/projects/handynotes_draenortreasures/files/latest",
+    "SavedInstances" : "https://www.wowace.com/projects/saved_instances/files/latest",
+    "AdvancedInterfaceOptions" : "https://www.wowace.com/projects/advancedinterfaceoptions/files/latest",
+    "TinyTooltip" : "https://wow.curseforge.com/projects/tinytooltip/files/latest",
+    "Auctionator" : "https://wow.curseforge.com/projects/auctionator/files/latest",
 }
 
 def dlAddOn(url):
