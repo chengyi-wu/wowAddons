@@ -3,51 +3,61 @@ import sys
 import zipfile
 
 addOns = {
-    "BigWigs Bossmods" : "https://www.curseforge.com/wow/addons/big-wigs/download/2730395/file",
-    "LittleWigs" : "https://www.curseforge.com/wow/addons/little-wigs/download/2730396/file",
-    "BigWigs_Voice" : "https://www.curseforge.com/wow/addons/bigwigs_voice/download/2730444/file",
-    "Bigwigs Voice - Chinese voicepack (VV)" : "https://www.curseforge.com/wow/addons/bigwigs-voice-chinese-voicepack-vv/download/2701838/file",
-    "Details! Damage Meter" : "https://www.curseforge.com/wow/addons/details/download/2730880/file",
+    "BigWigs Bossmods" : "https://www.curseforge.com/wow/addons/big-wigs/download",
+    "LittleWigs" : "https://www.curseforge.com/wow/addons/little-wigs/download",
+    "BigWigs_Voice" : "https://www.curseforge.com/wow/addons/bigwigs_voice/download/",
+    "Bigwigs Voice - Chinese voicepack (VV)" : "https://www.curseforge.com/wow/addons/bigwigs-voice-chinese-voicepack-vv/download/",
+    "Details! Damage Meter" : "https://www.curseforge.com/wow/addons/details/download/",
     "Quartz" : "https://www.wowace.com/projects/quartz/files/latest",
-    "Bagnon" : "https://www.curseforge.com/wow/addons/bagnon/download/2731027/file",
-    "CompactRaid" : "https://www.curseforge.com/wow/addons/compactraid/download/2625311/file",
-    "Immersion" : "https://www.curseforge.com/wow/addons/immersion/download/2665099/file",
+    "Bagnon" : "https://www.curseforge.com/wow/addons/bagnon/download/",
+    "CompactRaid" : "https://www.curseforge.com/wow/addons/compactraid/download/",
+    "Immersion" : "https://www.curseforge.com/wow/addons/immersion/download/",
     "Mapster" : "https://www.wowace.com/projects/mapster/files/latest",
-    "OmniCC" : "https://www.curseforge.com/wow/addons/omni-cc/download/2729472/file",
+    "OmniCC" : "https://www.curseforge.com/wow/addons/omni-cc/download/",
     "Postal" : "https://www.wowace.com/projects/postal/files/latest",
-    "KuiNameplates" : "https://www.curseforge.com/wow/addons/kuinameplates/download/2730194/file",
-    "Garrison Mission Manager" : "https://www.curseforge.com/wow/addons/garrison-mission-manager/download/2669426/file",
-    "World Quests List" : "https://www.curseforge.com/wow/addons/world-quests-list/download/2729754/file",
-    "Scrap (Junk Seller)" : "https://www.curseforge.com/wow/addons/scrap/download/2674885/file",
-    "TinyInspect" : "https://www.curseforge.com/wow/addons/itemlevel-anywhere/download/2729100/file",
-    "BonusRollPreview" : "https://www.curseforge.com/wow/addons/bonusrollpreview/download/2670624/file",
-    "KeystoneHelper" : "https://www.curseforge.com/wow/addons/keystonehelper/download/2587171/file",
+    "KuiNameplates" : "https://www.curseforge.com/wow/addons/kuinameplates/download/",
+    "Garrison Mission Manager" : "https://www.curseforge.com/wow/addons/garrison-mission-manager/download",
+    "World Quests List" : "https://www.curseforge.com/wow/addons/world-quests-list/download",
+    "Scrap (Junk Seller)" : "https://www.curseforge.com/wow/addons/scrap/download/",
+    "TinyInspect" : "https://www.curseforge.com/wow/addons/itemlevel-anywhere/download/",
+    "BonusRollPreview" : "https://www.curseforge.com/wow/addons/bonusrollpreview/download/",
+    "KeystoneHelper" : "https://www.curseforge.com/wow/addons/keystonehelper/download/",
     "Angry Keystones" : "https://www.wowace.com/projects/angry-keystones/files/latest", 
-    "Can I Mog It?" : "https://www.curseforge.com/wow/addons/can-i-mog-it/download/2729861/file",
-    "alaChat" : "https://www.curseforge.com/wow/addons/alachat/download/2731106/file",
-    "EnhancedChatFilterMODFix" : "https://www.curseforge.com/wow/addons/ecfmodfix/download/2731070/file", 
-    "AzeriteTooltip" : "https://www.curseforge.com/wow/addons/azeritetooltip/download/2686571/file",
-    "BFAInvasionTimer" : "https://www.curseforge.com/wow/addons/bfainvasiontimer/download/2730468/file",
+    "Can I Mog It?" : "https://www.curseforge.com/wow/addons/can-i-mog-it/download/",
+    "alaChat" : "https://www.curseforge.com/wow/addons/alachat/download/",
+    "EnhancedChatFilterMODFix" : "https://www.curseforge.com/wow/addons/ecfmodfix/download/", 
+    "AzeriteTooltip" : "https://www.curseforge.com/wow/addons/azeritetooltip/download/",
+    "BFAInvasionTimer" : "https://www.curseforge.com/wow/addons/bfainvasiontimer/download/",
     "WeakAuras 2" : "https://www.wowace.com/projects/weakauras-2/files/latest",
     "Shadowed Unit Frames" : "https://www.wowace.com/projects/shadowed-unit-frames/files/latest",
-    "Talent Set Manager" : "https://www.curseforge.com/wow/addons/talent-set-manager/download/2688116/file",
-    "Nameplate Scrolling Combat Text" : "https://www.curseforge.com/wow/addons/nameplate-scrolling-combat-text/download/2723430/file",
-    "AllTheIDs" : "https://www.curseforge.com/wow/addons/alltheids/download/2584848/file",
-    "Instance Portals" : "https://www.curseforge.com/wow/addons/instance-portals/download/2699553/file",
-    "Astral Keys" : "https://www.curseforge.com/wow/addons/astral-keys/download/2730239/file",
+    "Talent Set Manager" : "https://www.curseforge.com/wow/addons/talent-set-manager/download/",
+    "Nameplate Scrolling Combat Text" : "https://www.curseforge.com/wow/addons/nameplate-scrolling-combat-text/download/",
+    "AllTheIDs" : "https://www.curseforge.com/wow/addons/alltheids/download",
+    "Instance Portals" : "https://www.curseforge.com/wow/addons/instance-portals/download",
+    "Astral Keys" : "https://www.curseforge.com/wow/addons/astral-keys/download",
     "BugGrabber" : "https://www.wowace.com/projects/bug-grabber/files/latest",
     "BugSack" : "https://www.wowace.com/projects/bugsack/files/latest",
-    "MythicPlusTimer" : "hhttps://www.curseforge.com/wow/addons/mythicplustimer/download/2712277/file", 
+    "MythicPlusTimer" : "hhttps://www.curseforge.com/wow/addons/mythicplustimer/download", 
     "LibGroupInSpecT" : "https://www.wowace.com/projects/libgroupinspect/files/latest",
-    "LibGetFrame" : "https://www.curseforge.com/wow/addons/libgetframe/download/2708105/file",
+    "LibGetFrame" : "https://www.curseforge.com/wow/addons/libgetframe/download/",
     # "HandyNotes" : "https://www.wowace.com/projects/handynotes/files/latest",
     # "HandyNotes_DraenorTreasures" : "https://wow.curseforge.com/projects/handynotes_draenortreasures/files/latest",
     "SavedInstances" : "https://www.wowace.com/projects/saved_instances/files/latest",
     "AdvancedInterfaceOptions" : "https://www.wowace.com/projects/advancedinterfaceoptions/files/latest",
-    "TinyTooltip" : "https://www.curseforge.com/wow/addons/tinytooltip/download/2729101/file",
-    "Auctionator" : "https://www.curseforge.com/wow/addons/auctionator/download/2649069/file",
+    "TinyTooltip" : "https://www.curseforge.com/wow/addons/tinytooltip/download",
+    "Auctionator" : "https://www.curseforge.com/wow/addons/auctionator/download",
     "Bartender4" : "https://www.wowace.com/projects/bartender4/files/latest",
 }
+
+def parseCurseForge(file):
+    with open(file, 'r') as f:
+        for line in f:
+            line = line.strip()
+            if "If your download doesn't start automatically, click" in line:
+                start = line.index('"') + 1
+                end = line.index('"', start)
+                return "https://www.curseforge.com" + line[start : end]
+    return None
 
 def dlAddOn(url):
     def progresshook(chunk, chunkSize, totalSize):
@@ -56,6 +66,10 @@ def dlAddOn(url):
         sys.stdout.flush()
 
     file, _ = urllib.request.urlretrieve(url, reporthook=progresshook)
+    if "www.curseforge.com" in url:
+        url = parseCurseForge(file)
+        print("[%s] -> [%s]" % (file, url))
+        file, _ = urllib.request.urlretrieve(url, reporthook=progresshook)
 
     return file
 
