@@ -40,13 +40,15 @@ addOns = {
     "MythicPlusTimer" : "hhttps://www.curseforge.com/wow/addons/mythicplustimer/download", 
     "LibGroupInSpecT" : "https://www.wowace.com/projects/libgroupinspect/files/latest",
     "LibGetFrame" : "https://www.curseforge.com/wow/addons/libgetframe/download/",
-    # "HandyNotes" : "https://www.wowace.com/projects/handynotes/files/latest",
-    # "HandyNotes_DraenorTreasures" : "https://wow.curseforge.com/projects/handynotes_draenortreasures/files/latest",
     "SavedInstances" : "https://www.wowace.com/projects/saved_instances/files/latest",
     "AdvancedInterfaceOptions" : "https://www.wowace.com/projects/advancedinterfaceoptions/files/latest",
     "TinyTooltip" : "https://www.curseforge.com/wow/addons/tinytooltip/download",
     "Auctionator" : "https://www.curseforge.com/wow/addons/auctionator/download",
     "Bartender4" : "https://www.wowace.com/projects/bartender4/files/latest",
+    "HandyNotes" : "https://www.curseforge.com/wow/addons/handynotes/download",
+    # "HandyNotes_DraenorTreasures" : "https://wow.curseforge.com/projects/handynotes_draenortreasures/files/latest",
+    "HandyNotes - Nazjatar by TomCat's Tours" : "https://www.curseforge.com/wow/addons/tomcats-tours-nazjatar/download",
+    "HandyNotes - Mechagon by TomCat's Tours" : "https://www.curseforge.com/wow/addons/tomcats-tours-mechagon/download",
 }
 
 def parseCurseForge(file):
