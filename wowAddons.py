@@ -1,6 +1,9 @@
 import urllib.request
 import sys
 import zipfile
+import csv
+import os
+import time
 
 addOns = {
     "BigWigs Bossmods" : "https://www.curseforge.com/wow/addons/big-wigs/download",
@@ -37,7 +40,7 @@ addOns = {
     "Astral Keys" : "https://www.curseforge.com/wow/addons/astral-keys/download",
     "BugGrabber" : "https://www.wowace.com/projects/bug-grabber/files/latest",
     "BugSack" : "https://www.wowace.com/projects/bugsack/files/latest",
-    "MythicPlusTimer" : "hhttps://www.curseforge.com/wow/addons/mythicplustimer/download", 
+    "MythicPlusTimer" : "https://www.curseforge.com/wow/addons/mythicplustimer/download", 
     "LibGroupInSpecT" : "https://www.wowace.com/projects/libgroupinspect/files/latest",
     "LibGetFrame" : "https://www.curseforge.com/wow/addons/libgetframe/download/",
     "SavedInstances" : "https://www.wowace.com/projects/saved_instances/files/latest",
@@ -61,7 +64,7 @@ def parseCurseForge(file):
                 return "https://www.curseforge.com" + line[start : end]
     return None
 
-def dlAddOn(url):
+def dlAddOn(name, url):
     def progresshook(chunk, chunkSize, totalSize):
         size = min(chunk * chunkSize, totalSize)
         sys.stdout.write("%d KB / %d KB\r" % (size / 1024, totalSize / 1024))
@@ -71,7 +74,10 @@ def dlAddOn(url):
     if "www.curseforge.com" in url:
         url = parseCurseForge(file)
         print("[%s] -> [%s]" % (file, url))
-        file, _ = urllib.request.urlretrieve(url, reporthook=progresshook)
+        file = None
+        if addOns[name]["VERSION"] != url:
+            file, _ = urllib.request.urlretrieve(url, reporthook=progresshook)
+            addOns[name]["VERSION"] = url
 
     return file
 
@@ -82,6 +88,7 @@ def unZip(file, folder = '.'):
 if __name__ == '__main__':
     folder = 'D:/Games/World of Warcraft/_retail_/Interface/AddOns'
     use_proxy = True
+    file_name = "addons.csv"
     
     proxy = urllib.request.ProxyHandler({'http': 'http://raspberrypi:8118', 'https': 'http://raspberrypi:8118'})
     if use_proxy:
@@ -91,14 +98,45 @@ if __name__ == '__main__':
 
     opener.addheaders = [('User-agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0')]
     urllib.request.install_opener(opener)
-    
+
+    if not os.path.exists(file_name):
+        with open(file_name, 'w', newline='') as f:
+            writer = csv.writer(f)
+            writer.writerow(["Name", "URL", "VERSION", "TIMESTAMP"])
+            for k in addOns:
+                url = addOns[k]
+                writer.writerow([k, url, '', ''])
+
+    with open(file_name, 'r') as f:
+        reader = csv.reader(f)
+        header = True
+        for row in reader:
+            if header:
+                header = False
+                addOns = {}
+            else:
+                k = row[0]
+                v = { "Name": row[0], "URL" : row[1], "VERSION": row[2], "TIMESTAMP" : row[3] }
+                addOns[k] = v             
+            
     for k in addOns:
         try:
-            url = addOns[k]
+            url = addOns[k]["URL"]
             print("Downloading [%s] from [%s] ..." % (k, url))
-            file = dlAddOn(url)
-            print("\nExtracting [%s] to [%s] ..." % (file, folder))
-            unZip(file, folder)
+            file = dlAddOn(k, url)
+            if file is None:
+                print('[%s] No updates' % (k))
+            else:
+                print("\nExtracting [%s] to [%s] ..." % (file, folder))
+                unZip(file, folder)
+            addOns[k]["TIMESTAMP"] = time.ctime()
         except Exception as err:
             print("Failed to get [%s]: %r" % (k, err))
+            addOns[k]["TIMESTAMP"] = "ERR"
+
+    with open(file_name, 'w', newline='') as f:
+        writer = csv.writer(f)
+        writer.writerow(["Name", "URL", "VERSION", "TIMESTAMP"])
+        for k in addOns:
+            writer.writerow([addOns[k]["Name"], addOns[k]["URL"], addOns[k]["VERSION"], addOns[k]["TIMESTAMP"]])
             
