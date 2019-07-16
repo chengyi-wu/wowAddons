@@ -9,11 +9,11 @@ addOns = {
     "BigWigs Bossmods" : "https://www.curseforge.com/wow/addons/big-wigs/download",
     "LittleWigs" : "https://www.curseforge.com/wow/addons/little-wigs/download",
     "BigWigs_Voice" : "https://www.curseforge.com/wow/addons/bigwigs_voice/download/",
-    "Bigwigs Voice - Chinese voicepack (VV)" : "https://www.curseforge.com/wow/addons/bigwigs-voice-chinese-voicepack-vv/download/",
+    # "Bigwigs Voice - Chinese voicepack (VV)" : "https://www.curseforge.com/wow/addons/bigwigs-voice-chinese-voicepack-vv/download/",
     "Details! Damage Meter" : "https://www.curseforge.com/wow/addons/details/download/",
     "Quartz" : "https://www.wowace.com/projects/quartz/files/latest",
     "Bagnon" : "https://www.curseforge.com/wow/addons/bagnon/download/",
-    "CompactRaid" : "https://www.curseforge.com/wow/addons/compactraid/download/",
+    # "CompactRaid" : "https://www.curseforge.com/wow/addons/compactraid/download/",
     "Immersion" : "https://www.curseforge.com/wow/addons/immersion/download/",
     "Mapster" : "https://www.wowace.com/projects/mapster/files/latest",
     "OmniCC" : "https://www.curseforge.com/wow/addons/omni-cc/download/",
@@ -30,7 +30,7 @@ addOns = {
     "alaChat" : "https://www.curseforge.com/wow/addons/alachat/download/",
     "EnhancedChatFilterMODFix" : "https://www.curseforge.com/wow/addons/ecfmodfix/download/", 
     "AzeriteTooltip" : "https://www.curseforge.com/wow/addons/azeritetooltip/download/",
-    "BFAInvasionTimer" : "https://www.curseforge.com/wow/addons/bfainvasiontimer/download/",
+    # "BFAInvasionTimer" : "https://www.curseforge.com/wow/addons/bfainvasiontimer/download/",
     "WeakAuras 2" : "https://www.wowace.com/projects/weakauras-2/files/latest",
     "Shadowed Unit Frames" : "https://www.wowace.com/projects/shadowed-unit-frames/files/latest",
     "Talent Set Manager" : "https://www.curseforge.com/wow/addons/talent-set-manager/download/",
@@ -47,11 +47,12 @@ addOns = {
     "AdvancedInterfaceOptions" : "https://www.wowace.com/projects/advancedinterfaceoptions/files/latest",
     "TinyTooltip" : "https://www.curseforge.com/wow/addons/tinytooltip/download",
     "Auctionator" : "https://www.curseforge.com/wow/addons/auctionator/download",
-    "Bartender4" : "https://www.wowace.com/projects/bartender4/files/latest",
+    # "Bartender4" : "https://www.wowace.com/projects/bartender4/files/latest",
     "HandyNotes" : "https://www.curseforge.com/wow/addons/handynotes/download",
     # "HandyNotes_DraenorTreasures" : "https://wow.curseforge.com/projects/handynotes_draenortreasures/files/latest",
     "HandyNotes - Nazjatar by TomCat's Tours" : "https://www.curseforge.com/wow/addons/tomcats-tours-nazjatar/download",
     "HandyNotes - Mechagon by TomCat's Tours" : "https://www.curseforge.com/wow/addons/tomcats-tours-mechagon/download",
+    "TomCat's Tours" : "https://www.curseforge.com/wow/addons/tomcats/download", 
 }
 
 def parseCurseForge(file):
@@ -87,7 +88,7 @@ def unZip(file, folder = '.'):
 
 if __name__ == '__main__':
     folder = 'D:/Games/World of Warcraft/_retail_/Interface/AddOns'
-    use_proxy = True
+    use_proxy = False
     file_name = "addons.csv"
     
     proxy = urllib.request.ProxyHandler({'http': 'http://raspberrypi:8118', 'https': 'http://raspberrypi:8118'})
